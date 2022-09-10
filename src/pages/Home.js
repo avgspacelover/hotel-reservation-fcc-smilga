@@ -11,6 +11,7 @@ export const Home = () => {
   return (
     <div>
 
+
         <Hero hero='roomsHero' >
 
             <Banner title='luxurious rooms' subtitle='deluxe rooms starting at $299'>
@@ -22,6 +23,7 @@ export const Home = () => {
         </Hero>
         <Services />
         <FeaturedRooms />
+
     </div>
   )
 }

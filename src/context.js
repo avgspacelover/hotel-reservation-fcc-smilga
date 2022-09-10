@@ -8,6 +8,7 @@ const RoomContext = React.createContext();
 
 
 const RoomProvider = ({children}) => {
+   
     const [state, setState] = useState({
         rooms: [],
         sortedRooms: [],
@@ -15,20 +16,6 @@ const RoomProvider = ({children}) => {
         loading: true,
     })
 
-
-    useEffect(()=> {
-        let rooms= formatData(items);
-
-        let featuredRooms = rooms.filter(room => room.featured === true)
-
-        setState({
-            rooms,
-            sortedRooms: rooms, 
-            featuredRooms,
-            loading: false
-        })
-        
-    }, [])
 
     const formatData =(items) => {
 
@@ -47,9 +34,41 @@ const RoomProvider = ({children}) => {
 
     }
 
+  
+    useEffect(()=> {
+        
+
+        let rooms= formatData(items);
+
+        let featuredRooms = rooms.filter(room => room.featured === true)
+
+        
+        setState({
+            rooms,
+            sortedRooms: rooms, 
+            featuredRooms,
+            loading: false
+        })
+
+        console.log("render")
+    },[])
+
+
+    const getRoom = (slug)=> {
+
+        let tempRooms = [...state.rooms]
+
+        const room = tempRooms.find(room => room.slug === slug)
+
+
+        return room;
+
+
+    }
+
 
   return (
-    <RoomContext.Provider value={{state,setState}}>
+    <RoomContext.Provider value={{state,setState,getRoom}}>
     
         {children}
     
