@@ -69,9 +69,9 @@ const RoomProvider = ({children}) => {
         console.log("render")
     },[])
 
-    let handleChange= (e)=> {
+const handleChange= async(e)=> {
 
-        console.log("EVENT TARGET", e.target)
+        console.log("EVENT TARGET", e.target, e.target.value)
 
         const target =  e.target;
         const value= e.type === 'checkbox'? target.checked : target.value ;
@@ -81,25 +81,30 @@ const RoomProvider = ({children}) => {
        // const value = e.target.type;
     //    this.setState({
     //     [name]: value
-    //    }, filterRooms) //filteRooms is a function 
+    //    }, filterRooms) //filterRooms is a function 
        
-       
-       setState(state=> (
-            {
+       console.log("VALUE", value)
+        setState(state=> {
+
+           return {
                 ...state,
                 [name]: value,
             }
-        ))
-        console.log(state, value, name)
-        filterRooms()
+        })
+        console.log("ISSUE", state, value, name)
+
+        setTimeout( ()=> {
+            filterRooms()
+        }, 5000)
+
 
     }
 
+    // 04:18:38
+
+   
     let filterRooms = ()=> {
-        console.log("ji")
-
-
-
+        console.log("filterRoom render", state)
         let {
             rooms, 
             type,
@@ -129,6 +134,15 @@ const RoomProvider = ({children}) => {
             ))
         }
     }
+
+
+// useEffect(()=> {
+
+//     filterRooms(state)
+
+// },[filterRooms,state])
+
+
 
     const getRoom = (slug)=> {
 
