@@ -71,6 +71,7 @@ const RoomProvider = ({children}) => {
 
     let handleChange= (e)=> {
 
+        console.log("EVENT TARGET", e.target)
 
         const target =  e.target;
         const value= e.type === 'checkbox'? target.checked : target.value ;
@@ -88,12 +89,45 @@ const RoomProvider = ({children}) => {
                 ...state,
                 [name]: value,
             }
-        ), filterRooms)
+        ))
+        console.log(state, value, name)
+        filterRooms()
 
     }
 
     let filterRooms = ()=> {
         console.log("ji")
+
+
+
+        let {
+            rooms, 
+            type,
+            capacity,
+            price,
+            minSize,
+            maxSize,
+            breakfast,
+            pets
+        }= state
+
+
+        let tempRooms = [...rooms];
+
+        if(type!== 'all'){
+
+
+            let tempItems = tempRooms.filter(room => room.type === type)
+            console.log("MEEEEEEEE",type, tempItems)
+            setState(state => ( 
+                
+            {
+                ...state,
+                sortedRooms: tempItems
+            }
+            
+            ))
+        }
     }
 
     const getRoom = (slug)=> {

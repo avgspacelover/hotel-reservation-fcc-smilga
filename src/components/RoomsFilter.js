@@ -56,6 +56,8 @@ const {
                     name="type" 
                     id="type" 
                     value={type} 
+                    onChange={handleChange}
+                    className="form-control"
                 >
                     {types}
 
