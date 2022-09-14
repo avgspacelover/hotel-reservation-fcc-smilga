@@ -5,7 +5,7 @@ import  {Room}  from './Room'
 import Title from './Title'
 export const FeaturedRooms = () => {
 
-    const {state, setState} = useContext(RoomContext)
+    const {state} = useContext(RoomContext)
     
     const {loading, featuredRooms: rooms} = state
 
