@@ -7,7 +7,7 @@ import { FaCocktail, FaHiking, FaShuttleVan, FaBeer } from 'react-icons/fa'
 export const Services = () => {
 
 
-    const [services, setServices] = useState([
+    const [services] = useState([
         {
             icon: <FaCocktail />,
             title: "Complimentary Cocktails",
