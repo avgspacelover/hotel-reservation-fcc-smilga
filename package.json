@@ -11,7 +11,9 @@
     "react-icons": "^3.6.1",
     "react-router-dom": "^5.1.0",
     "react-scripts": "5.0.1",
+    "react-usestateref": "^1.0.8",
     "styled-components": "^4.4.1",
+    "use-state-with-callback": "^3.0.2",
     "web-vitals": "^2.1.4"
   },
   "scripts": {

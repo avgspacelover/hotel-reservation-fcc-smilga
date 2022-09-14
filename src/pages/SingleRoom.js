@@ -1,7 +1,7 @@
-import React , {useContext, useState}from 'react'
+import React , {useContext}from 'react'
 
 import defaultBcg from "../images/room-1.jpeg";
-import {Hero} from "../components/Hero";
+
 import {Banner} from "../components/Banner";
 import { Link, useParams } from "react-router-dom";
 import { RoomContext } from "../context";
@@ -14,13 +14,7 @@ export const SingleRoom = () => {
   const {slug} = useParams();
   console.log(slug)
 
-
-  const {roomState, setRoomState} = useState({
-    slug: slug,
-    defaultBcg
-  })
-
-  const {state, setState, getRoom}= useContext(RoomContext)
+  const { getRoom}= useContext(RoomContext)
 
 
 
